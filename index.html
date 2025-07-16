@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic HTML5 setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title and description for SEO -->
+    <title>Your Name - Developer Portfolio</title>
+    <meta name="description" content="Full-stack developer specializing in modern web technologies and AI-assisted development">
+    
+    <!-- Link to our custom CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fixed header with navigation -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo/brand name -->
+                <div class="logo">
+                    <h1>Your Name</h1> <!-- TODO: Replace with your actual name -->
+                </div>
+                <!-- Navigation menu -->
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <!-- Theme toggle button (handled by JavaScript) -->
+                    <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero section - first thing visitors see -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Your Name</span></h1> <!-- TODO: Replace with your name -->
+                <p class="hero-subtitle">Full-Stack Developer & AI Collaborator</p> <!-- TODO: Customize your title -->
+                <p class="hero-description">I build modern web applications with cutting-edge technologies, leveraging AI assistance to accelerate development and explore innovative solutions.</p> <!-- TODO: Write your own description -->
+                <!-- Call-to-action buttons -->
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a passionate developer who believes in the power of combining human creativity with AI assistance to build exceptional digital experiences.</p>
+                        <p>My approach to development embraces modern tools and AI collaboration, allowing me to focus on problem-solving and innovation while maintaining high code quality and best practices.</p>
+                        
+                        <h3>Skills & Technologies</h3>
+                        <!-- Skills organized in a responsive grid -->
+                        <div class="skills-grid">
+                            <!-- Frontend skills -->
+                            <div class="skill-category">
+                                <h4>Frontend</h4>
+                                <ul>
+                                    <li>React / Next.js</li> <!-- TODO: Update with your skills -->
+                                    <li>TypeScript</li>
+                                    <li>CSS3 / Sass</li>
+                                    <li>Responsive Design</li>
+                                </ul>
+                            </div>
+                            <!-- Backend skills -->
+                            <div class="skill-category">
+                                <h4>Backend</h4>
+                                <ul>
+                                    <li>Node.js</li> <!-- TODO: Update with your skills -->
+                                    <li>Python</li>
+                                    <li>PostgreSQL</li>
+                                    <li>REST APIs</li>
+                                </ul>
+                            </div>
+                            <!-- AI tools and general development tools -->
+                            <div class="skill-category">
+                                <h4>AI & Tools</h4>
+                                <ul>
+                                    <li>Claude / ChatGPT</li> <!-- TODO: Update with your AI tools -->
+                                    <li>GitHub Copilot</li>
+                                    <li>Git / GitHub</li>
+                                    <li>VS Code</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects showcase section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <!-- Grid layout for project cards -->
+                <div class="projects-grid">
+                    <!-- Project Card 1 - Example with AI badge -->
+                    <div class="project-card">
+                        <!-- Project image/screenshot area -->
+                        <div class="project-image">
+                            <div class="placeholder-image">Project Screenshot</div> <!-- TODO: Replace with actual image -->
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>Project Name 1</h3> <!-- TODO: Replace with your project name -->
+                                <!-- AI badge to highlight AI-assisted projects -->
+                                <div class="ai-badge">🤖 Built with AI</div>
+                            </div>
+                            <p>Description of your project and how AI assisted in its development. Mention specific areas where AI helped.</p> <!-- TODO: Write your project description -->
+                            <!-- Technology stack tags -->
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span> <!-- TODO: Update with your tech stack -->
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                            <!-- Project links -->
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Live Demo</a> <!-- TODO: Add your live demo URL -->
+                                <a href="#" class="btn btn-small btn-secondary">GitHub</a> <!-- TODO: Add your GitHub repo URL -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-image">Project Screenshot</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>Project Name 2</h3>
+                                <div class="ai-badge">🤖 Built with AI</div>
+                            </div>
+                            <p>Another project description highlighting AI collaboration and the specific benefits it provided.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Live Demo</a>
+                                <a href="#" class="btn btn-small btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-image">Project Screenshot</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>Project Name 3</h3>
+                            </div>
+                            <p>A project built traditionally to show versatility in both AI-assisted and conventional development approaches.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Live Demo</a>
+                                <a href="#" class="btn btn-small btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let's Work Together</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p>I'm always interested in new opportunities and collaborations. Whether you're looking for a developer who embraces AI-assisted development or want to discuss innovative project ideas, I'd love to hear from you.</p>
+                    </div>
+                    <!-- Contact links with icons -->
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="contact-link"> <!-- TODO: Replace with your email -->
+                            <span>📧</span>
+                            <span>your.email@example.com</span>
+                        </a>
+                        <a href="https://github.com/yourusername" class="contact-link"> <!-- TODO: Replace with your GitHub -->
+                            <span>🐙</span>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-link"> <!-- TODO: Replace with your LinkedIn -->
+                            <span>💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. Built with modern web technologies and AI assistance.</p> <!-- TODO: Replace with your name -->
+        </div>
+    </footer>
+
+    <!-- JavaScript file for interactive features -->
+    <script src="script.js"></script>
+</body>
+</html>

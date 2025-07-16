@@ -1,0 +1,465 @@
+/* CSS Custom Properties (Variables) for Light Theme */
+:root {
+    /* Colors - easily customizable */
+    --primary-color: #3b82f6;        /* Main brand color (blue) */
+    --secondary-color: #1e40af;      /* Darker blue for hover states */
+    --accent-color: #f59e0b;         /* Accent color for AI badges (yellow) */
+    --text-primary: #1f2937;         /* Main text color (dark gray) */
+    --text-secondary: #6b7280;       /* Secondary text color (lighter gray) */
+    --bg-primary: #ffffff;           /* Main background color (white) */
+    --bg-secondary: #f9fafb;         /* Secondary background color (light gray) */
+    --border-color: #e5e7eb;         /* Border color (light gray) */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);      /* Standard shadow */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Large shadow for hover effects */
+}
+
+/* Dark Theme Variables - activated when data-theme="dark" is set on body */
+[data-theme="dark"] {
+    --primary-color: #60a5fa;        /* Lighter blue for dark theme */
+    --secondary-color: #3b82f6;      /* Blue for hover states */
+    --accent-color: #fbbf24;         /* Brighter yellow for dark theme */
+    --text-primary: #f9fafb;         /* Light text for dark backgrounds */
+    --text-secondary: #d1d5db;       /* Lighter gray text */
+    --bg-primary: #111827;           /* Dark background */
+    --bg-secondary: #1f2937;         /* Slightly lighter dark background */
+    --border-color: #374151;         /* Dark border color */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);      /* Stronger shadow for dark theme */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3); /* Stronger large shadow */
+}
+
+/* Reset default browser styles and use border-box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Makes padding and border included in element width/height */
+}
+
+/* Main body styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* System fonts for better performance */
+    line-height: 1.6;                    /* Comfortable line spacing */
+    color: var(--text-primary);          /* Use CSS variable for text color */
+    background-color: var(--bg-primary); /* Use CSS variable for background */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transitions */
+}
+
+/* Container for centering content with max width */
+.container {
+    max-width: 1200px;  /* Maximum width to prevent content from being too wide */
+    margin: 0 auto;     /* Center the container */
+    padding: 0 1rem;    /* Add padding on sides for mobile spacing */
+}
+
+/* Fixed header that stays at top when scrolling */
+header {
+    position: fixed;                               /* Stay fixed at top */
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    backdrop-filter: blur(10px);                  /* Blur effect behind header */
+    z-index: 1000;                               /* Ensure header stays above other content */
+    border-bottom: 1px solid var(--border-color); /* Subtle border at bottom */
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(17, 24, 39, 0.95);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+main {
+    margin-top: 80px;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%236b7280" opacity="0.1"/></svg>') repeat;
+    background-size: 50px 50px;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-50px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.highlight {
+    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.about {
+    background-color: var(--bg-secondary);
+}
+
+.about h2, .projects h2, .contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.about-text h3 {
+    margin: 2rem 0 1rem 0;
+    color: var(--text-primary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.skill-category li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--bg-primary);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    height: 200px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.placeholder-image {
+    padding: 2rem;
+    text-align: center;
+    border: 2px dashed var(--border-color);
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-header h3 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+.ai-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact {
+    background-color: var(--bg-secondary);
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-text p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--primary-color);
+}
+
+.contact-link span:first-child {
+    font-size: 1.5rem;
+}
+
+footer {
+    background-color: var(--bg-primary);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
