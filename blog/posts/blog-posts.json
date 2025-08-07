@@ -1,0 +1,35 @@
+[
+  {
+    "id": "welcome-what-are-we-doing-here",
+    "title": "Welcome to 'What are we doing here?'",
+    "excerpt": "Exploring the intersection of tech, finance, and fitness with AI-powered tools like Claude Code",
+    "author": "Your Name",
+    "date": "2025-01-07",
+    "category": "tech-ai",
+    "tags": ["introduction", "claude-code", "ai", "databricks"],
+    "readTime": "3 min read",
+    "file": "welcome-what-are-we-doing-here.html"
+  },
+  {
+    "id": "tracking-fitness-with-neon-postgres",
+    "title": "Building a Fitness Tracker with Neon PostgreSQL",
+    "excerpt": "Setting up cloud PostgreSQL to track workout data and integrate with analytics platforms",
+    "author": "Your Name", 
+    "date": "2025-01-07",
+    "category": "fitness",
+    "tags": ["neon", "postgresql", "fitness-tracking", "data"],
+    "readTime": "5 min read",
+    "file": "tracking-fitness-with-neon-postgres.html"
+  },
+  {
+    "id": "databricks-for-personal-analytics",
+    "title": "Using Databricks Lakehouse for Personal Data Analytics",
+    "excerpt": "How to leverage enterprise data tools for personal finance and fitness insights",
+    "author": "Your Name",
+    "date": "2025-01-07", 
+    "category": "finance",
+    "tags": ["databricks", "analytics", "finance", "personal-data"],
+    "readTime": "7 min read",
+    "file": "databricks-for-personal-analytics.html"
+  }
+]

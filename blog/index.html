@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What are we doing here? - Blog</title>
+    <meta name="description" content="Exploring tech/AI, finance, and fitness through data-driven insights">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1><a href="../index.html">Your Name</a></h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="index.html" class="active">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="blog-main">
+        <div class="blog-header">
+            <h1>What are we doing here?</h1>
+            <p class="blog-subtitle">Exploring the intersection of tech/AI, finance, and fitness with modern tools</p>
+        </div>
+
+        <div class="blog-container">
+            <aside class="blog-sidebar">
+                <div class="category-filter">
+                    <h3>Categories</h3>
+                    <button class="filter-btn active" data-category="all">All Posts</button>
+                    <button class="filter-btn" data-category="tech-ai">Tech & AI</button>
+                    <button class="filter-btn" data-category="finance">Finance</button>
+                    <button class="filter-btn" data-category="fitness">Fitness</button>
+                </div>
+                
+                <div class="recent-posts">
+                    <h3>Recent Posts</h3>
+                    <ul id="recent-posts-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="blog-content">
+                <div class="posts-grid" id="posts-grid">
+                    <!-- Blog posts will be loaded here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+    <script src="assets/js/blog.js"></script>
+</body>
+</html>
