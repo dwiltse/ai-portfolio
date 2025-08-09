@@ -123,4 +123,105 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
+
+    // SKILLS SECTION FUNCTIONALITY
+    initializeSkillsSection();
+
+    function initializeSkillsSection() {
+        // Setup skill category filtering
+        const skillFilterButtons = document.querySelectorAll('.skill-filter-btn');
+        const skillItems = document.querySelectorAll('.skill-item');
+
+        // Add click event listeners to filter buttons
+        skillFilterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                skillFilterButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter skill items
+                filterSkills(category, skillItems);
+            });
+        });
+
+        // Setup intersection observer for skills animation
+        const skillsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate progress bars when skills section comes into view
+                    animateProgressBars();
+                    // Only trigger once
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        // Observe the skills section
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
+
+        // Add hover effects to skill items
+        skillItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    }
+
+    function filterSkills(category, skillItems) {
+        skillItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            
+            if (category === 'all' || itemCategory === category) {
+                item.classList.remove('hidden');
+                // Add a small delay for smoother animation
+                setTimeout(() => {
+                    item.style.display = 'block';
+                }, 50);
+            } else {
+                item.classList.add('hidden');
+                // Hide after animation completes
+                setTimeout(() => {
+                    if (item.classList.contains('hidden')) {
+                        item.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+    }
+
+    function animateProgressBars() {
+        const progressBars = document.querySelectorAll('.skill-progress');
+        
+        progressBars.forEach((bar, index) => {
+            const progress = bar.getAttribute('data-progress');
+            
+            // Add a staggered delay for each progress bar
+            setTimeout(() => {
+                bar.style.width = progress + '%';
+                
+                // Add shimmer effect after progress bar fills
+                setTimeout(() => {
+                    bar.classList.add('shimmer');
+                }, 1500);
+            }, index * 150); // 150ms delay between each bar
+        });
+    }
+
+    // Add skill items to the fade-in observer for entrance animations
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
 });
