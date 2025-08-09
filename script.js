@@ -58,7 +58,81 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    const fadeElements = document.querySelectorAll('.project-card, .skill-category, .contact-link');
+    // SKILLS SECTION FUNCTIONALITY
+    // Handle skill category switching
+    const categoryItems = document.querySelectorAll('.category-item');
+    const skillGroups = document.querySelectorAll('.skill-group');
+    
+    categoryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Remove active class from all categories and skill groups
+            categoryItems.forEach(cat => cat.classList.remove('active'));
+            skillGroups.forEach(group => group.classList.remove('active'));
+            
+            // Add active class to clicked category
+            this.classList.add('active');
+            
+            // Show corresponding skill group
+            const targetGroup = document.querySelector(`.skill-group[data-category="${category}"]`);
+            if (targetGroup) {
+                targetGroup.classList.add('active');
+                
+                // Animate progress bars in the active group
+                setTimeout(() => {
+                    animateProgressBars(targetGroup);
+                }, 100);
+            }
+        });
+    });
+    
+    // Function to animate progress bars
+    function animateProgressBars(container) {
+        const progressBars = container.querySelectorAll('.progress-bar');
+        progressBars.forEach((bar, index) => {
+            // Reset animation
+            bar.style.width = '0%';
+            bar.classList.remove('animate');
+            
+            setTimeout(() => {
+                const targetWidth = bar.getAttribute('data-width');
+                bar.style.width = targetWidth + '%';
+                bar.classList.add('animate');
+            }, index * 200); // Stagger animations
+        });
+    }
+    
+    // Skills section intersection observer for initial animation
+    const skillsSection = document.getElementById('skills');
+    const skillsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate the currently active skill group
+                const activeGroup = document.querySelector('.skill-group.active');
+                if (activeGroup) {
+                    animateProgressBars(activeGroup);
+                }
+                skillsObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+    
+    if (skillsSection) {
+        skillsObserver.observe(skillsSection);
+    }
+    
+    // Add skills section to existing fade-in animation
+    const skillItems = document.querySelectorAll('.skill-item, .category-item');
+    skillItems.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+    
+    // Update existing fade elements to include skills elements
+    const fadeElements = document.querySelectorAll('.project-card, .skill-category, .contact-link, .skill-item, .category-item');
     fadeElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
