@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    const fadeElements = document.querySelectorAll('.project-card, .skill-category, .contact-link');
+    const fadeElements = document.querySelectorAll('.project-card, .skill-category, .contact-link, .skill-item');
     fadeElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
@@ -122,5 +122,63 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
+    });
+    
+    // SKILLS SECTION FUNCTIONALITY
+    
+    // Progress bar animation when skills section comes into view
+    const skillsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBars = entry.target.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    const percentage = bar.getAttribute('data-percentage');
+                    // Add a small delay for staggered animation effect
+                    setTimeout(() => {
+                        bar.style.width = percentage + '%';
+                    }, Math.random() * 500);
+                });
+                skillsObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+    
+    // Observe the skills section for animation
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+        skillsObserver.observe(skillsSection);
+    }
+    
+    // Skill category filtering
+    const categoryItems = document.querySelectorAll('.category-item');
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    categoryItems.forEach(category => {
+        category.addEventListener('click', function() {
+            // Remove active class from all categories
+            categoryItems.forEach(item => item.classList.remove('active'));
+            // Add active class to clicked category
+            this.classList.add('active');
+            
+            const selectedCategory = this.getAttribute('data-category');
+            
+            skillItems.forEach(skill => {
+                const skillCategory = skill.getAttribute('data-category');
+                if (selectedCategory === 'all' || skillCategory === selectedCategory) {
+                    skill.classList.remove('hidden');
+                    skill.classList.add('visible');
+                } else {
+                    skill.classList.remove('visible');
+                    skill.classList.add('hidden');
+                }
+            });
+        });
+    });
+    
+    // Initialize all skills as visible
+    skillItems.forEach(skill => {
+        skill.classList.add('visible');
     });
 });
